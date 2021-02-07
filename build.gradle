@@ -15,9 +15,9 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '2.0.4'
 }
 
-group 'com.senderman'
+/*group 'com.senderman'
 version '1.0'
-mainClassName = 'com.annimon.tgbotsmodule.Runner'
+mainClassName = 'com.annimon.tgbotsmodule.Runner'*/
 
 repositories {
     // Use jcenter for resolving dependencies.
@@ -45,8 +45,8 @@ application {
 task stage(dependsOn: ['clean', 'installDist'])
 //task stage(dependsOn: ['clean', 'shadowJar'])
 
-shadowJar {
+/*shadowJar {
     mergeServiceFiles()
     exclude 'META-INF/*.DSA'
     exclude 'META-INF/*.RSA'
-}
+}*/
