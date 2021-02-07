@@ -1,1 +1,1 @@
-bot: java -jar build/libs/MyBot.jar
+bot: java -jar build/libs/MyBot1.jar
