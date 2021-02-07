@@ -37,4 +37,5 @@ application {
     mainClassName = 'MyBot.App'
 }
 
-task stage(dependsOn: ['clean', 'installDist'])
+task stage(dependsOn: ['clean', 'shadowJar'])
+//task stage(dependsOn: ['clean', 'shadowJar'])
