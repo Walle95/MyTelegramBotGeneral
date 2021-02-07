@@ -50,3 +50,11 @@ task stage(dependsOn: ['clean', 'installDist'])
     exclude 'META-INF/*.DSA'
     exclude 'META-INF/*.RSA'
 }*/
+jar {
+    manifest {
+        attributes 'Main-Class': 'MyBot.Main'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
