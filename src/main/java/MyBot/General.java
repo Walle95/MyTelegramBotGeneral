@@ -2,6 +2,8 @@ package MyBot;
 
 import com.vdurmont.emoji.EmojiParser;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.bots.TelegramWebhookBot;
+import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.api.objects.Dice;
@@ -19,18 +21,13 @@ import org.telegram.telegrambots.meta.generics.LongPollingBot;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-public class General extends TelegramLongPollingBot {
+public class General extends TelegramWebhookBot {
     private static final String TOKEN = "1206500522:AAHjmvs96b1O-F9r53P2cNlzPKrncUWE_dM";
     private static final String USERNAME = "education69_bot";
 
     Emodji emodji = new Emodji();
     TextManager textManager = new TextManager();
 
-
-
-    @Override
     public void onUpdateReceived(Update update) {
         // We check if the update has a message and the message has text
         if (update.hasMessage() && update.getMessage().hasText()) {
@@ -50,9 +47,6 @@ public class General extends TelegramLongPollingBot {
                 } catch (TelegramApiException e) {
                     e.printStackTrace();
                 }
-
-
-
 
                 // Создаем клавиатуру
                 ReplyKeyboardMarkup keyboardMarkup = new ReplyKeyboardMarkup();
@@ -91,7 +85,6 @@ public class General extends TelegramLongPollingBot {
                 }
             }
 
-
             if (message_text.equals(textManager.text1))
             {
                     SendMessage message2 = new SendMessage().setChatId(chat_id).setText(textManager.text4 + "\n\n"
@@ -114,15 +107,14 @@ public class General extends TelegramLongPollingBot {
                 }
             }
 
-
-
-
-
-
-
-
         }
     }
+
+    @Override
+    public BotApiMethod onWebhookUpdateReceived(Update update) {
+        return null;
+    }
+
     @Override
     public String getBotUsername() {
         return USERNAME;
@@ -131,5 +123,10 @@ public class General extends TelegramLongPollingBot {
     @Override
     public String getBotToken() {
         return TOKEN;
+    }
+
+    @Override
+    public String getBotPath() {
+        return null;
     }
 }
