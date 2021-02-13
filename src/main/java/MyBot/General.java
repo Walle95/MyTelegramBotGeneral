@@ -28,7 +28,8 @@ public class General extends TelegramWebhookBot {
     Emodji emodji = new Emodji();
     TextManager textManager = new TextManager();
 
-    public void onUpdateReceived(Update update) {
+    @Override
+    public BotApiMethod onWebhookUpdateReceived(Update update) {
         // We check if the update has a message and the message has text
         if (update.hasMessage() && update.getMessage().hasText()) {
             // Set variables
@@ -108,11 +109,7 @@ public class General extends TelegramWebhookBot {
             }
 
         }
-    }
-
-    @Override
-    public BotApiMethod onWebhookUpdateReceived(Update update) {
-        return null;
+        return  null;
     }
 
     @Override
