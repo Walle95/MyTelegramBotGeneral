@@ -52,6 +52,6 @@ public class General extends TelegramWebhookBot {
 
     @Override
     public String getBotPath() {
-        return  "https://d3a3958777fc.ngrok.io";
+        return  "https://26b87f8deef6.ngrok.io";
     }
 }
